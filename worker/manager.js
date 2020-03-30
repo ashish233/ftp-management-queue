@@ -8,7 +8,7 @@ var path = require("path");
 var supportedFormat;
 
 var kue;
-
+let brandPickCount=0;
 module.exports = function(
   queue,
   brands,
@@ -35,7 +35,7 @@ module.exports = function(
   job.start();
   processQueue(queue, numberOfProcess,processNames,fileFormats);
 };
-let brandPickCount=0;
+
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -323,3 +323,5 @@ let getFiles = function(brand) {
     }
   });
 };
+
+
