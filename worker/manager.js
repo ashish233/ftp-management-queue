@@ -51,6 +51,10 @@ console.log("brands length",items.length)
 
 console.log(brandPickCount,"brandPickCount >>>>>>>");
 
+if(brandPickCount>=length){
+  brandPickCount=0;
+} 
+
 var brand = items[brandPickCount];
   // i++;
  brandPickCount= brandPickCount+1;
