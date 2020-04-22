@@ -34,7 +34,7 @@ module.exports = function(
   });
 
   job.start();
-  processQueue(queue, numberOfProcess,processNames,fileFormats);
+
 
 
 function getRandomInt(min, max) {
@@ -323,6 +323,8 @@ let getFiles = function(brand) {
     }
   });
 };
+
+processQueue(queue, numberOfProcess,processNames,fileFormats);
 
 }
 
