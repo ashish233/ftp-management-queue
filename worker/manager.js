@@ -8,7 +8,7 @@ var path = require("path");
 var supportedFormat;
 
 var kue;
-let brandPickCount=0;
+
 module.exports = function(
   queue,
   brands,
@@ -18,6 +18,7 @@ module.exports = function(
   processame
 ) {
   kue = Kue;
+  let brandPickCount=0;
   let processNames = processame;
   // supportedFormat = fileFormats;
   console.log("in managaer");
@@ -34,7 +35,6 @@ module.exports = function(
 
   job.start();
   processQueue(queue, numberOfProcess,processNames,fileFormats);
-};
 
 
 function getRandomInt(min, max) {
@@ -324,4 +324,5 @@ let getFiles = function(brand) {
   });
 };
 
+}
 
