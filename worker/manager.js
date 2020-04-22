@@ -8,7 +8,7 @@ var path = require("path");
 var supportedFormat;
 
 var kue;
-
+let brandPickCount=0;
 module.exports = function(
   queue,
   brands,
@@ -18,11 +18,23 @@ module.exports = function(
   processame
 ) {
   kue = Kue;
-  let brandPickCount=0;
   let processNames = processame;
   // supportedFormat = fileFormats;
-  
+  console.log("in managaer");
+  console.log(supportedFormat);
+  var job = new CronJob({
+    cronTime: "* * * * * ", //every 5 second
+    onTick: function() {
+      console.log("----- Manager Cron ------");
+      selectRandomBrand(queue, brands, fileFormats,processNames);
+    },
+    start: true,
+    timeZone: "America/Los_Angeles"
+  });
 
+  job.start();
+  processQueue(queue, numberOfProcess,processNames,fileFormats);
+};
 
 
 function getRandomInt(min, max) {
@@ -30,7 +42,7 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-var selectRandomBrand = function(queue, brands, fileFormats,processNames) {
+let selectRandomBrand = function(queue, brands, fileFormats,processNames) {
   let items = brands;
   let length = items.length;
 //  let i = getRandomInt(0,length-1)
@@ -312,21 +324,4 @@ let getFiles = function(brand) {
   });
 };
 
-console.log("in managaer");
-  console.log(supportedFormat);
-  var job = new CronJob({
-    cronTime: "* * * * * ", //every 5 second
-    onTick: function() {
-      console.log("----- Manager Cron ------");
-      selectRandomBrand(queue, brands, fileFormats,processNames);
-    },
-    start: true,
-    timeZone: "America/Los_Angeles"
-  });
-
-  job.start();
-
-processQueue(queue, numberOfProcess,processNames,fileFormats);
-
-}
 
