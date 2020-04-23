@@ -314,6 +314,7 @@ module.exports = function(
   // supportedFormat = fileFormats;
   console.log("in managaer");
   console.log(supportedFormat);
+  console.log("cronTime>>>>>>>>>>>>>>.",cronTime);
   var job = new CronJob({
     cronTime: getCronTime,
     onTick: function() {
