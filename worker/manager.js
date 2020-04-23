@@ -15,7 +15,8 @@ module.exports = function(
   fileFormats,
   numberOfProcess,
   Kue,
-  processame
+  processname,
+  cronTime
 ) {
 
 
@@ -308,12 +309,13 @@ module.exports = function(
 
 
   kue = Kue;
-  let processNames = processame;
+  let processNames = processname;
+  let getCronTime = cronTime ?  cronTime :"*/3 * * * * "
   // supportedFormat = fileFormats;
   console.log("in managaer");
   console.log(supportedFormat);
   var job = new CronJob({
-    cronTime: "* * * * * ", //every 5 second
+    cronTime: getCronTime,
     onTick: function() {
       console.log("----- Manager Cron ------");
       selectRandomBrand(queue, brands, fileFormats,processNames);
