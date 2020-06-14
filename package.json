@@ -1,5 +1,5 @@
 {
-"name": "ftp-management-queue",
+"name": "ftp-management-queue-rr",
   "version": "5.7.0",
   "description": "Queue Management for FTP Server",
   "main": "index.js",
