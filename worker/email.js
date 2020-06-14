@@ -1,9 +1,9 @@
 
 
 
-module.exports = function (queue, cbemailfunction,numberOfProcess) {
+module.exports = function (queue, cbemailfunction,numberOfProcess,processname) {
 
-  queue.process("emailqueue", numberOfProcess, cbemailfunction);
+  queue.process(processname.email, numberOfProcess, cbemailfunction);
 
 }
 
