@@ -55,7 +55,7 @@ module.exports = function(queue, cbuploader, globalPath, numberOfProcess,process
       });
       uploader.start();
     } else {
-      var delay = 60 * 5 * 1000;
+      var delay = 60 * 15 * 1000;
       console.log("in line number 39");
       console.log(job.id);
       console.log(job.data.brand.name);
